@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+
+    <context:component-scan base-package="celue"/>
+
+    <bean name="beforeAdvice" class="AOP.ManBefore"></bean>
+    <bean name="afterAdvice" class="AOP.ManAfter"></bean>
+
+    <bean name="celue" class="celue.Manjian">
+    <constructor-arg name="m" value="100"></constructor-arg>
+    <constructor-arg name="j" value="50"></constructor-arg>
+    <property name="can" value="200"></property>
+</bean>
+
+    <bean id="celuedaili" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>celue.CelueZ</value>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>beforeAdvice</value>
+                <value>afterAdvice</value>
+            </list>
+        </property>
+        <property name="target">
+            <ref bean="celue"/>
+        </property>
+    </bean>
+
+
+
+
+</beans>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="maventrythir:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="com_ggl.war">
+      <element id="artifact" artifact-name="maventrythir:war exploded" />
+    </root>
+  </artifact>
+</component>

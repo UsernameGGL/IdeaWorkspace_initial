@@ -1,0 +1,20 @@
+Point (x:Number , y:Number);
+
+Line(start: Point, end: Point, width, color)
+
+//其中width表示在canvas中的宽度，color是一个描述颜色的字符串
+
+
+
+//Canvas绘制一条线：
+
+//描述canvas的宽度和高度
+Canvas(width , height)
+
+
+//绘制一条直线
+renderLine(ine: Line)
+
+
+//清楚canvas的内容
+clear()

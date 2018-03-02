@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style type="text/css">
+	*{
+		margin:0;
+		padding:0;
+	}
+	.img{
+		animation:rotatez 7s;
+		animation-timing-function:linear;
+		animation-iteration-count:infinite;
+	}
+	@keyframes rotatez{
+		0%{transform:rotateZ(0deg);}
+        100%{transform:rotateZ(360deg);}
+	}
+	table td{
+       border:1px solid #fff;
+       text-align:center;
+       font-size:30px;
+       color:#fff;
+	}
+</style>
+<title>HTML5可视化mp3音乐播放器代码</title>
+</head>
+<body>
+    <script type="text/javascript" src="index.js">
+	</script>
+	<canvas id="canvas">
+	</canvas>
+         <table id="msclist" class="msclist" style="width:100%; height:100%;">
+
+         </table>
+    <audio autoplay loop id="audio"  style=" ">
+	</audio>
+
+</body>
+</html>

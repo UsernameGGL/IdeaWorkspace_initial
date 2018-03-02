@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://example" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://example" xmlns:intf="http://example" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://example" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="city" type="xsd:string"/>
+   <element name="getCityWeatherReturn" type="xsd:string"/>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getCityWeatherRequest">
+
+      <wsdl:part element="impl:city" name="city"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCityWeatherResponse">
+
+      <wsdl:part element="impl:getCityWeatherReturn" name="getCityWeatherReturn"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="WeatherQuery">
+
+      <wsdl:operation name="getCityWeather" parameterOrder="city">
+
+         <wsdl:input message="impl:getCityWeatherRequest" name="getCityWeatherRequest"/>
+
+         <wsdl:output message="impl:getCityWeatherResponse" name="getCityWeatherResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="WeatherQuerySoapBinding" type="impl:WeatherQuery">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getCityWeather">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCityWeatherRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCityWeatherResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="WeatherQueryService">
+
+      <wsdl:port binding="impl:WeatherQuerySoapBinding" name="WeatherQuery">
+
+         <wsdlsoap:address location="http://localhost:8080/services/WeatherQuery"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
